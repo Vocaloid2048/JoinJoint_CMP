@@ -13,11 +13,10 @@ import java.util.Properties
 
 //BETA | C.BETA | DEV | PRODUCTION
 //VersionUpdateCheck
-val isForAppStore = true
-val isForPlayStore = false
-var appProfile = "BETA" //Please Modify this String ONLY IF NECESSERY
-val appVersionCodeName = "Herta"
-val appVersionDesktop = "1.0.6"
+val isForAppStore = true    //Please set to "true" if you are building for Apple App Store/ TestFlight
+val isForPlayStore = false  //Please set to "true" if you are building for Google Play Store
+var appProfile = "BETA"     //Please Modify this String ONLY IF NECESSERY
+val appVersionDesktop = "1.0.0"
 
 /**
  * tasks to gradle.properties
@@ -29,6 +28,8 @@ val appVersion: String = SimpleDateFormat("yyyy.MM.dd").format(Date())
 val versionCodeFinal = properties.getProperty("APP_VERSION_CODE").toInt() + 1
 //val schemeProfile: String? = System.getenv("SCHEME_PROFILE")
 if(isForPlayStore) appProfile = "PRODUCTION_GP"
+
+initGradleProperties()
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -45,6 +46,8 @@ kotlin {
         }
     }
 
+    jvm()
+
     val xcf = XCFramework()
 
     listOf(
@@ -59,8 +62,9 @@ kotlin {
             xcf.add(this)
         }
     }
-    
-    jvm()
+
+    applyDefaultHierarchyTemplate()
+
     
     sourceSets {
         androidMain.dependencies {
@@ -76,6 +80,29 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.navigation.compose) //navigation
+            implementation(libs.adaptive) //adaptive
+            implementation(libs.coil.network.ktor) //coil-ktor
+
+            implementation(libs.kotlinx.serialization.json) //ktx-serialization
+            implementation(libs.kotlinx.datetime) //ktx-datetime
+            implementation(libs.coil) //coil-compose
+            implementation(libs.coil.compose.core) //coil-compose
+            implementation(libs.multiplatform.settings) //settings for kmm
+            implementation(libs.multiplatform.settings.no.arg) //settings for kmm - no arg support
+            implementation(libs.okio) //okio
+            implementation(libs.richeditor.compose) //Rich Text Editor
+            implementation(libs.grid) //Grid Layout
+            implementation(libs.kmp.io) //External File I/O
+
+            //Ktor - Web Request I/O
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.serialization)
+
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -83,6 +110,11 @@ kotlin {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
+            implementation(compose.material3)
+            implementation(libs.kotlinx.serialization.core)
+        }
+        nativeMain.dependencies {
+            implementation("io.ktor:ktor-client-darwin:3.0.0") //Ktor iOS
         }
     }
 }
@@ -231,7 +263,6 @@ fun initGradleProperties(){
     //Write only
     properties["APP_PROFILE"] = appProfile
     properties["APP_VERSION"] = appVersion
-    properties["APP_VERSION_CODENAME"] = appVersionCodeName
     properties["APP_VERSION_DESKTOP"] = appVersionDesktop
     properties["APP_VERSION_CODE"] = versionCodeFinal.toString()
     properties.store(file("../gradle.properties").outputStream(),null)
