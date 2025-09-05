@@ -23,11 +23,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
 import com.voc.joinjoint.setKeyboardDarkMode
 import joinjoint.composeapp.generated.resources.Res
 import joinjoint.composeapp.generated.resources.sarasa_gothic_tc_regular
+import kotlin.math.roundToInt
 
 /**
  * Color Constants
@@ -155,3 +157,16 @@ object AppNavTransitions {
             (AnimatedContentTransitionScope<NavBackStackEntry>.() -> SizeTransform?)? = null
 }
 
+/**
+ * Convert Px to Dp
+ */
+fun pxToDp(px : Int, density: Float) : Dp {
+    return Dp(px / density)
+}
+
+/**
+ * Convert Dp to Px
+ */
+fun DpToPx(dp : Dp, density: Float) : Int {
+    return (dp.value * density).roundToInt()
+}
