@@ -1,3 +1,8 @@
+/*
+ * Created by Voc-夜芷冰 (Vocaloid2048)
+ * Copyright © 2025 . All rights reserved.
+ */
+
 plugins {
     // this is necessary to avoid the plugins to be loaded multiple times
     // in each subproject's classloader
