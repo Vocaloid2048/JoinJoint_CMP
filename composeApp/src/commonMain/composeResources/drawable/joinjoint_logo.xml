@@ -1,0 +1,79 @@
+<!--
+  ~ Created by Voc-夜芷冰 (Vocaloid2048)
+  ~ Copyright © 2025 . All rights reserved.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="177dp"
+    android:height="39dp"
+    android:viewportWidth="177"
+    android:viewportHeight="39">
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="6"
+        android:pathData="M13.72 3H27v16.57C27 23.71 25.06 32 15.26 32S3 23.2 3 19.57"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="6"
+        android:pathData="M52.5 3A14.5 14.5 0 1 0 52.5 32 14.5 14.5 0 1 0 52.5 3z"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="7"
+        android:pathData="M74 3.5h26"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="7"
+        android:pathData="M74 31.5h26"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="7"
+        android:pathData="M87 4v27"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="7"
+        android:pathData="M109 0v35"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="7"
+        android:pathData="M134 0v35"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M33 4v16.5C33 30 26.5 38 16.5 38"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M73 19c0 10.5-8.5 19-19 19"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M103 4v6h-9.5v16"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M103 30v8H76"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M108.5 38h7V22"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M132.5 38h8V4"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M146 11.1V4h30v7.1h-11.5V38h-7V11.1H146Z"/>
+    <path
+        android:strokeColor="#FF61BD7B"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M44 17c0-4.42 3.58-8 8-8"/>
+</vector>
