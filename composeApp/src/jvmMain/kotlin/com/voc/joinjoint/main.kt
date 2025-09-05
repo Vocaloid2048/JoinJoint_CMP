@@ -13,6 +13,6 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "JoinJoint",
     ) {
-        App()
+        App(ContextFactory())
     }
 }
