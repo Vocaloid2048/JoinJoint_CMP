@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Created by Voc-夜芷冰 (Vocaloid2048)
+  ~ Copyright © 2025 . All rights reserved.
+  -->
+
+<resources>
+    <string name="app_name">JoinJoint</string>
+    <string name="app_name_local">JoinJoint</string>
+    <string name="login_line_account">Line帐号登录</string>
+</resources>

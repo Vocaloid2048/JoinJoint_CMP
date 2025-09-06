@@ -19,6 +19,7 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -26,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
+import com.voc.joinjoint.globalDensity
 import com.voc.joinjoint.setKeyboardDarkMode
 import joinjoint.composeapp.generated.resources.Res
 import joinjoint.composeapp.generated.resources.sarasa_gothic_tc_regular
@@ -56,6 +58,12 @@ private val LightColorScheme = lightColorScheme(
 /**
  * Theme Constants
  */
+
+
+val SarasaGothicTC : @Composable () -> FontFamily = {
+    FontFamily(org.jetbrains.compose.resources.Font(Res.font.sarasa_gothic_tc_regular))
+}
+
 @Composable
 fun JoinJointTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -79,28 +87,34 @@ fun JoinJointTheme(
  */
 @Composable
 fun AppTypography() : Typography{
-    val sarasaGothicTC = FontFamily(org.jetbrains.compose.resources.Font(Res.font.sarasa_gothic_tc_regular))
-
     return Typography(
         headlineLarge = TextStyle(
-            fontFamily = sarasaGothicTC,
+            fontFamily = SarasaGothicTC(),
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp
         ),
         bodyMedium = TextStyle(
-            fontFamily = sarasaGothicTC,
+            fontFamily = SarasaGothicTC(),
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp
         ),
         displaySmall = TextStyle(
-            fontFamily = sarasaGothicTC,
+            fontFamily = SarasaGothicTC(),
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp
         )
     )
 }
 
-@DoItLater("Add font size text style")
+/**
+ * Default App Font Size
+ */
+@Composable
+fun FontSizeDefault() = TextStyle(
+    fontFamily = SarasaGothicTC(),
+    fontWeight = FontWeight.Medium,
+    fontSize = 32.sp
+)
 
 /**
  * Bezier Easing for the app, suggested by 2O48, the designer of JoinJoint
@@ -160,13 +174,13 @@ object AppNavTransitions {
 /**
  * Convert Px to Dp
  */
-fun pxToDp(px : Int, density: Float) : Dp {
+fun pxToDp(px : Int, density: Float = globalDensity.density) : Dp {
     return Dp(px / density)
 }
 
 /**
  * Convert Dp to Px
  */
-fun DpToPx(dp : Dp, density: Float) : Int {
+fun DpToPx(dp : Dp, density: Float = globalDensity.density) : Int {
     return (dp.value * density).roundToInt()
 }

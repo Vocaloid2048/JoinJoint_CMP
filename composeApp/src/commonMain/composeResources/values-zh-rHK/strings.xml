@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">JoinJoint</string>
+    <string name="app_name_local">揪揪</string>
+    <string name="login_line_account">Line帳戶登入</string>
+    <string name="login_guest_mode_hint">上滑開啟訪客模式</string>
+</resources>

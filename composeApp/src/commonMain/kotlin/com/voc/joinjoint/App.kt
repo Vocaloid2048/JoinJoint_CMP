@@ -22,19 +22,17 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
-import appLanguageState
 import coil3.compose.setSingletonImageLoaderFactory
 import com.voc.joinjoint.ui.navigation.RootFrame
 import com.voc.joinjoint.utils.AppLanguage
 import com.voc.joinjoint.utils.AppLanguage.Companion.AppLanguageInstance
 import com.voc.joinjoint.utils.JoinJointTheme
-import globalDensity
+import com.voc.joinjoint.utils.newImageLoader
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import joinjoint.composeapp.generated.resources.Res
 import joinjoint.composeapp.generated.resources.compose_multiplatform
-import platformContext
 import kotlin.collections.contains
 
 // Application-wide variables

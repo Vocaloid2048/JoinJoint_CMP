@@ -68,16 +68,7 @@ fun newImageRequest(context: PlatformContext, data: Any, crossFade : Boolean = t
     .build()
 
 /**
- * Get String from StringResource
- * Remove the prefix and suffix quotes
- */
-@Composable
-fun resToStr(stringResource: StringResource) : String{
-    return stringResource(stringResource).removePrefix("\"").removeSuffix("\"")
-}
-
-/**
- * Replace sth like ${1} to your value
+ * Replace sth like ${1} to your values
  */
 fun String.replaceStrRes(newValue: String, index : Int = 1) : String{
     return this.replace("\${$index}", newValue)

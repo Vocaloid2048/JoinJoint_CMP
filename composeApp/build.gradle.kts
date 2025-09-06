@@ -10,6 +10,8 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Properties
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.INT
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 
 //BETA | C.BETA | DEV | PRODUCTION
 //VersionUpdateCheck
@@ -37,6 +39,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    id("com.codingfeline.buildkonfig").version("0.15.1")
+    kotlin("plugin.serialization") version "2.0.10"
 }
 
 kotlin {
@@ -256,6 +260,16 @@ compose.desktop {
                 }
             }
         }
+    }
+}
+
+buildkonfig {
+    packageName = "com.voc.joinjoint"
+    //Read only
+    defaultConfigs {
+        buildConfigField(STRING, "appProfile", appProfile)
+        buildConfigField(STRING, "appVersionName", appVersion)
+        buildConfigField(INT, "appVersionCode", properties.getProperty("APP_VERSION_CODE"))
     }
 }
 
